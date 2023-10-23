@@ -1,0 +1,35 @@
+DATASET: 
+    TRAIN: 'NuscenesDataset'
+    VAL: null
+    DATASET_ROOT: 'datasets/nuscenes'
+    POINT_CLOUD_RANGE: [-51.2, -51.2, -3.0, 51.2, 51.2, 1.0]
+    POINT_CLOUD_RANGE_VAL: null
+    DATA_SPLIT: {
+        'train': parametrizing,
+        'val': train,
+        'test': val
+    }
+    VOXEL_SIZE: [0.05, 0.05, 0.1]
+    APPLY_SCALING: False
+    INPUT_FRAMES: 1
+    OUTPUT_FRAMES: 1
+    SKIP_FRAMES: 1
+
+ENCODER:
+    NAME: BEVNet
+    COLLATE: collate_spconv
+    IN_CHANNELS: 4
+    OUT_CHANNELS: 256  # DO NOT CHANGE
+    FEATURE_DIMENSION: 128
+
+OPTIMIZATION:
+    BATCH_SIZE_PER_GPU: 10
+    NUM_EPOCHS: 50
+    NUM_WORKERS_PER_GPU: 2
+
+    OPTIMIZER: AdamW
+    LR: 0.001
+    WEIGHT_DECAY: 0.001
+
+    LOSS: "contrast"
+    BEV_STRIDE: null

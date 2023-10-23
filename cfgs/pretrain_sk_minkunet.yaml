@@ -1,0 +1,35 @@
+DATASET: 
+    TRAIN: 'SemanticKITTIDataset'
+    VAL: 'KITTIBEVDataset'
+    DATASET_ROOT: 'datasets/semantic_kitti'
+    # POINT_CLOUD_RANGE: [-70, -70, -3.0, 70, 70, 1.0]
+    POINT_CLOUD_RANGE: [-51.2, -51.2, -3.0, 51.2, 51.2, 1.0]
+    DATA_SPLIT: {
+        'train': train,
+        'val': val,
+        'test': val
+    }
+    VOXEL_SIZE: 0.05
+    APPLY_SCALING: False
+    INPUT_FRAMES: 1
+    OUTPUT_FRAMES: 1
+    SKIP_FRAMES: 6
+
+ENCODER:
+    NAME: SegContrastMinkUNet18
+    COLLATE: collate_minkowski
+    IN_CHANNELS: 4
+    OUT_CHANNELS: 128  # DO NOT CHANGE
+    FEATURE_DIMENSION: 128
+
+OPTIMIZATION:
+    BATCH_SIZE_PER_GPU: 10
+    NUM_EPOCHS: 50
+    NUM_WORKERS_PER_GPU: 4
+
+    OPTIMIZER: AdamW
+    LR: 0.001
+    WEIGHT_DECAY: 0.001
+
+    LOSS: "contrast"
+    BEV_STRIDE: 4

@@ -1,0 +1,10 @@
+.vscode
+datasets
+output
+outputs
+**/__pycache__
+*.pyc
+**/.ipynb_checkpoints
+downstream/results
+checkpoints/
+*.pt

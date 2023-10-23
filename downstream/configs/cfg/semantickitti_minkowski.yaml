@@ -1,0 +1,64 @@
+
+name: SemanticKITTI
+dataset_name: SemanticKITTI
+dataset_root: ../datasets/semantic_kitti/
+desc: inI_predI
+save_dir: results/SemanticKITTI/
+
+# splits
+train_split: train
+val_split: val
+test_split: val
+
+# inputs
+inputs: ["pos", "intensities"] #["x"] # x is ones, intensities, dirs, normals, pos, rgb in the desired order
+
+# optimization
+training:
+  max_epochs: 50
+  batch_size: 4
+  val_interval: 5
+
+optimizer: torch.optim.AdamW
+optimizer_params:
+  lr: 0.001
+
+# network
+network:
+  framework: minkowski_engine
+  backbone: SegContrastMinkUNet18
+  backbone_params: 
+    quantization_params:
+      voxel_size: 0.05
+  latent_size: 128
+
+# misc
+device: cuda
+num_device: 1
+threads: 4
+interactive_log: false
+logging: INFO
+resume: null
+
+
+# sampling
+manifold_points: 80000
+non_manifold_points: 4096
+
+# data augmentation
+transforms:
+  voxel_decimation: 0.05
+  scaling_intensities: false
+  random_rotation_z: true
+  random_flip: true
+
+downstream:
+  checkpoint_dir: null
+  checkpoint_name: null
+  batch_size: 8
+  num_classes: 20
+  max_epochs: 30
+  val_interval: 5
+  skip_ratio: 1
+  seed_offset: 0
+  ignore_index: 0
