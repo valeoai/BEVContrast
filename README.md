@@ -9,10 +9,11 @@ by *Corentin Sautier, Gilles Puy, Alexandre Boulch, Renaud Marlet, and Vincent L
 
 If you use BEVContrast in your research, please cite:
 ```
-@InProceedings{BEVContrast,
-    author    = {Sautier, Corentin and Puy, Gilles and Boulch, Alexandre and Marlet, Renaud and Lepetit, Vincent},
-    title     = {BEVContrast: Self-Supervision in BEV Space for Automotive Lidar Point Clouds},
-    TODO
+@inproceedings{Sautier_3DV24,
+  author    = {Corentin Sautier and Gilles Puy and Alexandre Boulch and Renaud Marlet and Vincent Lepetit},
+  title     = {{BEVContrast}: Self-Supervision in BEV Space for Automotive Lidar Point Clouds},
+  booktitle = {International Conference on 3D Vision (3DV)},
+  year      = 2024
 }
 ```
 
