@@ -99,7 +99,7 @@ class BEVTrainer(nn.Module):  # TODO rename
 
         pred_bev = F.grid_sample(input_bev[0::self.input_frames], grid, mode='bilinear', padding_mode='zeros', align_corners=False)
         if self.collapse:
-            occupancy_pred = torch.any(output_bev != 0, 1)
+            occupancy_pred = torch.any(pred_bev != 0, 1)
         else:
             occupancy_pred = F.grid_sample(occupancy_in[0::self.input_frames].unsqueeze(1).to(torch.float32), grid, mode='bilinear', padding_mode='zeros', align_corners=False).squeeze(1).bool()
         mask = torch.logical_and(occupancy_out, occupancy_pred)
