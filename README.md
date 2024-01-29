@@ -2,7 +2,7 @@
 
 Official Pytorch implementation of the method **BEVContrast**. More details can be found in the paper:
 
-**BEVContrast: Self-Supervision in BEV Space for Automotive Lidar Point Clouds**, TODO 2024 [[arXiv](TODO)]
+**BEVContrast: Self-Supervision in BEV Space for Automotive Lidar Point Clouds**, 3DV 2024 [[arXiv](https://arxiv.org/abs/2310.17281)]
 by *Corentin Sautier, Gilles Puy, Alexandre Boulch, Renaud Marlet, and Vincent Lepetit*
 
 ![Overview of the method](./assets/method.png)
