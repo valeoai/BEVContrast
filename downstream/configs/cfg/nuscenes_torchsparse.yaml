@@ -1,7 +1,7 @@
 
 name: NuScenes
 dataset_name: NuScenes
-dataset_root: data/nuscenes
+dataset_root: ../datasets/nuscenes
 desc: inI_predI
 save_dir: results/nuScenes/
 
